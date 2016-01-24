@@ -38,6 +38,10 @@ class FormRemoteController {
 
     def getAjax() {}
 
+    def ajaxAction2() {
+        render params
+    }
+
     def getJson() {}
 
     def loadAjax() {}
@@ -45,6 +49,8 @@ class FormRemoteController {
     def serialize() {}
 
     def serializeAction() {
+        println "Sdfdsfs"
+        println params
         render params
     }
 
@@ -54,9 +60,12 @@ class FormRemoteController {
 
     def ajaxActionJSON(String name) {
         render([name: name, age: 24] as JSON)
+//        render([name: name, age: 24])
+//        render "saa"
     }
 
     def ajaxAction(String name) {
+        println "Sdfsdfsf";
         render name
     }
 
@@ -67,6 +76,13 @@ class FormRemoteController {
     def demoAjax() {}
 
     def ajaxRequest(String name) {
+        Enumeration<String> head = request.headerNames
+        head.each {
+            println it
+        }
+        println "Example"
+        println request.getHeader("x-requested-with");
+        println request.getHeader("content-type");
         render([name: name])
     }
 }

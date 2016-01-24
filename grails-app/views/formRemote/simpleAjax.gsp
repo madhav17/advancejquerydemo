@@ -14,15 +14,26 @@
 <script>
     jQuery(document).ready(function () {
         jQuery("#submit").click(function () {
-            jQuery("#message").html("Please wait....");
+            %{--jQuery("#message").html("Please wait....");--}%
+            %{--jQuery.ajax({--}%
+            %{--url: "${createLink(controller: "formRemote",action: "ajaxAction")}",--}%
+            %{--data: {name: jQuery("#name").val()},--}%
+            %{--success: function (data) {--}%
+            %{--//                    jQuery("#message").html(data);--}%
+            %{--}--}%
+            %{--});--}%
+
             jQuery.ajax({
                 url: "${createLink(controller: "formRemote",action: "ajaxAction")}",
-                data: {name: jQuery("#name").val()},
-                success: function (data) {
-                    jQuery("#message").html(data);
-                }
+                data: {name: jQuery("#name").val()}
+            }).done(function (data) {
+                jQuery("#message").html(data);
+            }).fail(function () {
+                jQuery("#message").html("Ajax Fail");
             });
+
         });
+
     });
 </script>
 </body>

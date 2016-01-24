@@ -13,6 +13,7 @@
 <script>
     jQuery(document).ready(function () {
         jQuery("#submit").click(function () {
+            jQuery("#message").html("Please Wait......");
             jQuery.getJSON(
                     "${createLink(controller: "formRemote",action: "ajaxActionJSON")}",
                     {name: jQuery("#name").val()},

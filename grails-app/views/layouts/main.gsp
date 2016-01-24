@@ -17,8 +17,8 @@
     <g:layoutHead/>
     %{--<g:javascript library="application"/>--}%
     %{--<g:javascript library="prototype"/>--}%
-    %{--<g:javascript src="jquery-1.11.1.min.js"/>--}%
-    <g:javascript library="jquery"/>
+    <g:javascript src="jquery-1.11.1.min.js"/>
+    %{--<g:javascript library="jquery"/>--}%
     <r:layoutResources/>
 </head>
 
